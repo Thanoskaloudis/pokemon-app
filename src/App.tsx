@@ -1,13 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as PokemonAPI from "./utils/PokemonAPI";
 import './App.scss';
+import { CardItems } from './components/CardItems/CardItems';
+import { ICardItem } from './components/CardItems/CardItems.model';
 
 function App() {
+  const [fistGenPokemon, setFistGenPokemon] = useState<ICardItem[]>([]);
 
   useEffect(() => {
     const getFistGenPokemon = async () => {
       const res: any = await PokemonAPI.getFirstGeneration();
-      console.log(res.results);
+      setFistGenPokemon(res.results);
     };
 
     getFistGenPokemon();
@@ -17,6 +20,7 @@ function App() {
     <div className="app">
       <header className="app-header">
       </header>
+      <CardItems items={fistGenPokemon}/>
     </div>
   );
 }

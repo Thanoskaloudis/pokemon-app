@@ -1,0 +1,11 @@
+.cards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  &--item {
+    box-sizing: border-box;
+    margin: 1rem .25rem;
+  }
+
+}

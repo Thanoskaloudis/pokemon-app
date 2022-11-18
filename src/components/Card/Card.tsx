@@ -25,9 +25,7 @@ export const Card = (props: ICardItem) => {
       <div className="card--name">
         {pokemon.name}
       </div>
-      <div className="card--button">
-        
-      </div>
+        <button className="card--button">More</button>
     </div>
   );
 }

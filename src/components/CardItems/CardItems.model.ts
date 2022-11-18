@@ -1,5 +1,6 @@
 export interface ICardItem {
   name: string
+  image: string
   url: boolean
 }
 

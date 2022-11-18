@@ -11,6 +11,7 @@ function App() {
     const getFistGenPokemon = async () => {
       const res: any = await PokemonAPI.getFirstGeneration();
       setFistGenPokemon(res.results);
+      console.log(res);
     };
 
     getFistGenPokemon();

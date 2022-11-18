@@ -5,6 +5,7 @@ import './Card.scss';
 
 export const Card = (props: ICardItem) => {
   const [pokemon, setPokemon] = useState<any>({});
+  const [isSelected, setIsSelected] = useState(false);
 
   useEffect(() => {
     const getPokemon = async () => {
@@ -16,16 +17,37 @@ export const Card = (props: ICardItem) => {
     getPokemon();
   }, []);
 
+  const handleClick = () => {
+    setIsSelected(isSelected => !isSelected);
+  }
+
   return (
-    <div className="card">
-        <img
-          src={pokemon.sprites && pokemon.sprites.front_default}
-          alt=""
-        />
-      <div className="card--name">
-        {pokemon.name}
-      </div>
-        <button className="card--button">More</button>
+    <div>
+    <div className="overlay" style={{display: isSelected ? "block" : "none"}}></div>
+    <div className={isSelected ? "card selected" : "card"}>
+    {isSelected
+        ? <div className="card--secondary">
+            <button className="card--secondary--button"  onClick={handleClick}>x</button>
+            <div className="card--secondary--name">
+              {pokemon.name}
+            </div>
+            <div className="card--secondary-stats">
+              <div>{"Height: " + pokemon.height + "cm" }</div>
+              <div>{"Weight: " + pokemon.weight + "kg"}</div>
+            </div>
+          </div>
+        : <div className="card--primary">
+            <img
+            src={pokemon.sprites && pokemon.sprites.front_default}
+            alt="pokemon icon"
+          />
+          <div className="card--primary--name">
+            {pokemon.name}
+          </div>
+          <button className="card--primary--button"  onClick={handleClick}>More</button>
+        </div>
+      }
+    </div>
     </div>
   );
 }

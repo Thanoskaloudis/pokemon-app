@@ -9,4 +9,19 @@
     margin: 1rem .25rem;
   }
 
+  &--top {
+    width: 100%;
+    border-bottom: 1px solid #d5d8df;
+    display: flex;
+    align-items: center;
+
+    &__search{
+      width: 100%;
+      padding: 20px 20px 20px 60px;
+      font-size: 1.2em;
+      border: 0;
+      outline: none;
+    }
+  }
+
 }

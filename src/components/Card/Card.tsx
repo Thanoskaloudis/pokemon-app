@@ -28,12 +28,26 @@ export const Card = (props: ICardItem) => {
     {isSelected
         ? <div className="card--secondary">
             <button className="card--secondary--button"  onClick={handleClick}>x</button>
-            <div className="card--secondary--name">
+            <h3 className="card--secondary--name">
               {pokemon.name}
-            </div>
-            <div className="card--secondary-stats">
-              <div>{"Height: " + pokemon.height + "cm" }</div>
-              <div>{"Weight: " + pokemon.weight + "kg"}</div>
+            </h3>
+            <div className="card--secondary--stats">
+              <div>{"Height: " + (pokemon.height / 10 )+ "m" }</div>
+              <div>{"Weight: " + (pokemon.weight / 10) + "kg"}</div>
+              <div className="card--secondary--stats--lists">
+                <ul>
+                <h4 className="card--secondary--stats--lists--header"> Abilities</h4>
+                {pokemon.abilities.map((ability: any) =>
+                    <li key={ability.ability.name} >{ability.ability.name}</li>
+                )}
+                </ul>
+                <ul>
+                <h4 className="card--secondary--stats--lists--header"> Types</h4>
+                {pokemon.types.map((type: any) =>
+                    <li key={type.type.name} >{type.type.name}</li>
+                )}
+                </ul>
+              </div>
             </div>
           </div>
         : <div className="card--primary">

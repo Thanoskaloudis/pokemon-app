@@ -26,10 +26,31 @@
   }
   
   &--secondary {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
+
+    &--name {
+      margin-top: -1rem;
+    }
+
+    &--stats {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: center;
+
+      &--lists {
+        display: flex;
+        gap: 1rem;
+        margin: -1rem;
+
+        &--header {
+          margin: 0;
+          padding: 6px;
+          color: #57a4a7;
+          border-bottom: 1px dashed black;
+        }
+      }
+    }
 
     &--button {
       position: absolute;
@@ -54,7 +75,7 @@
 .selected {
   transform: scale(2);
   z-index: 3;
-  position: absolute; left: 40%; top: 40%;
+  position: fixed; left: 40%; top: 40%;
   transition: all .3s ease-in-out;
 }
 
@@ -70,4 +91,17 @@
   background-color: rgba(0,0,0,0.5);
   z-index: 2;
   cursor: pointer; 
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+h4 {
+  margin: 10px;
+  color: #57a4a7;
 }

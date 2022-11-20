@@ -10,7 +10,7 @@ export const getFirstGeneration = () =>
     .then((data) => data);
 
 
-export const getPokemon = (url) =>
+export const getPokemon = (url: string) =>
 fetch(`${url}`, { headers })
   .then((res) => res.json())
   .then((data) => data);

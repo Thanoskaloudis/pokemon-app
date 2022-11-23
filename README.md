@@ -35,6 +35,9 @@ names as well as a list of its types.)
 
 * Data used from Pokemon API (https://pokeapi.co/)
 
+## Demo:
+https://elaborate-souffle-3e1d9b.netlify.app/
+
 ## TODO
 
 * Pagination
